@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+
+<project name="SeleniumGrid" default="runAll" basedir=".">
+
+	<!-- ====== Initialize Properties ====== -->
+	<property environment="env" />
+	<property name="test.src" location="src\com\tests" />
+	<property name="test.dest" location="build" />
+	<property name="test.lib" location="lib" />
+	<property name="test.result" location="test-output" />	
+
+	<!-- ====== Include required jar files and set classpath ====== -->
+	<path id="test.classpath">
+		<pathelement location="${test.dest}" />
+		<fileset dir="${test.lib}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<!-- ====== Check for ANT setup ====== -->
+	<tstamp>
+		<format property="date" pattern="MMddyyyy" />
+		<format property="time" pattern="hhmmss" />
+	</tstamp>
+
+	<!-- ====== Delete old compiled classes ====== -->
+	<target name="clean">
+		<delete dir="test-output" />
+		<delete dir="testng-xslt" />
+		<delete dir="${test.dest}" />
+		<delete dir="${classes.dir}" failonerror="false"/>
+	</target>
+
+	<!-- ====== TestNG task definition ====== -->
+	<taskdef name="testng" classpathref="test.classpath" classname="org.testng.TestNGAntTask" />
+
+	<!-- ====== Compile all java files ====== -->
+	<target name="compile" depends="clean">
+		<echo message="making directory..." />
+		<mkdir dir="test-output" />
+		<mkdir dir="${test.dest}" />
+		<echo message="classpath: ${test.classpath}" />
+		<echo message="compiling..." />
+		<javac debug="false" destdir="${test.dest}" includes="**/*.java, scripts/*/*.java" srcdir="${test.src}" target="1.8">
+			<classpath refid="test.classpath" />
+		</javac>
+	</target>
+
+	<target name="server">
+		<echo>This is a Windows machine.</echo>
+		<exec dir="." executable="cmd" >
+			<arg line="-c /server.bat"/>
+		</exec>
+
+	</target>
+	<presetdef name="javac">
+    <javac includeantruntime="true" />
+  	</presetdef>
+	<!-- ====== Run All tests ====== -->
+	<target name="runAll" depends="compile">
+	  <testng classpathref="test.classpath" suitename="AllTest">
+	    <xmlfileset dir="config" includes="*.xml" />
+	  </testng>
+	</target>
+		
+	<target name="loginTest" depends="compile">
+	  <testng classpathref="test.classpath" suitename="" haltonfailure="true">
+		<xmlfileset dir="config" includes="Login.xml" />
+	  </testng>
+	</target>
+    
+    <property name="LIB" value="${basedir}/lib" />
+	<property name="BIN" value="${basedir}/bin" />
+	<path id="master-classpath">
+	<pathelement location="${BIN}" />
+      <fileset dir="${LIB}">
+         <include name="**/*.jar" />
+      </fileset>
+</path>
+</project>
