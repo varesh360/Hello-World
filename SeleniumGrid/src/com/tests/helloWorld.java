@@ -18,7 +18,7 @@ public class helloWorld {
  
    @BeforeMethod
    public void setUp() throws MalformedURLException {
-      URL hubUrl = new URL("http://loadtest.aliaswire.com:4445/wd/hub");
+      URL hubUrl = new URL("http://192.168.0.100:6666/wd/hub");
       DesiredCapabilities capabilities = new DesiredCapabilities();
       capabilities.setBrowserName("firefox");
       capabilities.setPlatform(Platform.WIN8_1);

@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
+    <line>
+      <![CDATA[Opened a browser]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="26388" started-at="2016-07-07T17:51:37Z" finished-at="2016-07-07T17:52:03Z">
+  <suite name="HelloWorld" duration-ms="11773" started-at="2016-07-18T18:07:25Z" finished-at="2016-07-18T18:07:36Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="26388" started-at="2016-07-07T17:51:37Z" finished-at="2016-07-07T17:52:03Z">
-      <class name="com.tests.testCase">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.tests.testCase@f7fe8e]" name="setUp" is-config="true" duration-ms="13644" started-at="2016-07-07T23:21:37Z" finished-at="2016-07-07T23:21:50Z">
+    <test name="HelloWorld" duration-ms="11773" started-at="2016-07-18T18:07:25Z" finished-at="2016-07-18T18:07:36Z">
+      <class name="com.tests.helloWorld">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.tests.helloWorld@18ef96]" name="setUp" is-config="true" duration-ms="7987" started-at="2016-07-18T23:37:25Z" finished-at="2016-07-18T23:37:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="windowsTest()[pri:0, instance:com.tests.testCase@f7fe8e]" name="windowsTest" duration-ms="3262" started-at="2016-07-07T23:21:50Z" finished-at="2016-07-07T23:21:54Z">
+        <test-method status="PASS" signature="windowsTest()[pri:0, instance:com.tests.helloWorld@18ef96]" name="windowsTest" duration-ms="3286" started-at="2016-07-18T23:37:33Z" finished-at="2016-07-18T23:37:36Z">
           <reporter-output>
+            <line>
+              <![CDATA[Opened a browser]]>
+            </line>
           </reporter-output>
         </test-method> <!-- windowsTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tests.testCase@f7fe8e]" name="tearDown" is-config="true" duration-ms="9463" started-at="2016-07-07T23:21:54Z" finished-at="2016-07-07T23:22:03Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tests.helloWorld@18ef96]" name="tearDown" is-config="true" duration-ms="468" started-at="2016-07-18T23:37:36Z" finished-at="2016-07-18T23:37:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tests.testCase -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.tests.helloWorld -->
+    </test> <!-- HelloWorld -->
+  </suite> <!-- HelloWorld -->
 </testng-results>
